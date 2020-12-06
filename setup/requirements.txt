@@ -3,3 +3,4 @@ BeautifulSoup4
 beautysh
 requests
 speedtest-cli
+fb-idb

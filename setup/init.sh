@@ -55,7 +55,7 @@ local afd_id='com.seriflabs.affinitydesigner'
 
 function gem() {
   echo "Installing gems"
-  bundle install --gemfile=~/.dotfiles/gem/Gemfile
+  bundle install --gemfile=~/dotfiles/gem/Gemfile
 }
 
 function gitlab() {
