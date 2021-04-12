@@ -580,6 +580,10 @@ function bundleid () {
   osascript -e "id of app \"$1\"" | pbcopy && pbpaste && cd - >/dev/null && printf '\n(copied to clipbord)\n\n'
 }
 
+function sticker (){
+  convert $1 -resize 512x512 -background "rgba(0, 0, 0, 0)" -gravity center output.png
+}
+
 # Return random words from dictionary á la TempleOS (RIP Terry)
 function godwords () {
   echo $(shuf -n ${1:-10} /usr/share/dict/words --random-source=/dev/urandom | tr "\n" " ")
