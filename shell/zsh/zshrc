@@ -129,3 +129,4 @@ eval "$(pyenv init -)"
 [[ -f /usr/local/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh ]] && . /usr/local/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh
 
 eval $(thefuck --alias)
+export PATH="/Users/dennismuensterer/.deta/bin:$PATH"
