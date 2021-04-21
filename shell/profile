@@ -78,12 +78,12 @@ alias yc='yarn cucumber'
 alias yd='yarn dev'
 alias yg='yarn global'
 alias yi='yarn init'
-alias yp='yarn pods'
 alias ys='yarn start'
 alias yt='yarn test'
-alias yr='y; yp; ys'
-alias yrm='ycc; rm -rf node_modules; yi'
+alias yr='yarn install; yarn start' # yarn react
+alias yrn='yarn install; npx pod-install; yarn ios' # yarn react native
 alias ycc='yarn cache clean'
+alias yrm='ycc; rm -rf node_modules; yi'
 alias yag='yarn global add'
 alias yad='yarn add --dev'
 alias ysb='yarn storybook'
@@ -93,7 +93,7 @@ alias ybs='yarn build-storybook'
 alias ni='npm install'
 alias ns='npm start'
 alias nid='npm install --save-dev'
-alias nig='npm install --global'
+alias ng='npm install --global'
 alias nt='npm test'
 alias nit='npm install && npm test'
 alias nr='npm run'
@@ -102,11 +102,11 @@ alias nrm='rm -rf node_modules && npm install'
 alias npl='npm list --global --depth=0'
 alias nhg='npm-home -g'
 alias nhy='npm-home -y'
-# npx
-alias cra='npx create-react-app '
-alias me='npx dnnsmnstrr'
-alias pi="npx pod-install "
 
+# npx
+alias me='npx dnnsmnstrr'
+alias cra='npx create-react-app '
+alias pods="npx pod-install "
 
 alias p="pip"
 alias pipi="pip install "
@@ -129,7 +129,6 @@ alias ip="curl icanhazip.com"
 alias copy_ssh='pbcopy < $HOME/.ssh/id_rsa.pub'
 
 # System
-
 alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias reboot='sudo shutdown -r now'
 alias shutdown='sudo shutdown -h now'
@@ -137,11 +136,11 @@ alias dark='darkmode'
 alias light='darkmode'
 # Empty the Trash on all mounted volumes and the main HDD, clear Apple’s System Logs to improve shell startup speed, clear download history from quarantine. https://mths.be/bum
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
-# Restart touch bar
-alias touchbar="killall ControlStrip"
+
+alias touchbar="killall ControlStrip" # Restart touch bar
 alias swap="sysctl vm.swapusage"
-# Get week number
-alias week='date +%V'
+
+alias week='date +%V' # Get week number
 alias kw='week'
 
 # Shortcuts

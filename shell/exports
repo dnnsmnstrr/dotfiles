@@ -5,6 +5,7 @@ export GEM_HOME="$HOME/.gem"
 # React Native for Android requirements
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8` # https://stackoverflow.com/questions/21964709/how-to-set-or-change-the-default-java-jdk-version-on-os-x
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-15.0.2.jdk
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
 # Allow 32³ entries; the default is 1000.
