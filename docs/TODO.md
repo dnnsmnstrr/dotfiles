@@ -95,4 +95,7 @@ ls -la /usr/local/bin/gpg
 ln -s ../Cellar/gnupg/{version}/bin/gpg /usr/local/bin/gpg2
 ```
 
+- GPG signing broken
+`git config --global gpg.program $(which gpg)`
+
 [<- Back](index.md)
