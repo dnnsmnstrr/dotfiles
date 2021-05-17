@@ -6,6 +6,7 @@ alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'" # show non _pre
 # Get macOS Software and App Store Updates, update installed Ruby gems, Homebrew, npm, and their installed packages
 function update() {
 	sudo -v
+  echo -n "yellow" | nc -4u -w0 localhost 1738
 	echo "Updating everything!";
 	echo "";
 	sudo softwareupdate -i -a;
@@ -34,6 +35,7 @@ function update() {
   apm update
   apm upgrade
 	echo "Finished updating!";
+  echo -n "green" | nc -4u -w0 localhost 1738
 }
 
 function sleeptimer() {
@@ -554,7 +556,7 @@ Usage: mynewscript SCRIPT_NAME.ext\n"
 }
 
 # Set anybar color
-function anybash () { echo -n ${1:-blue} | nc -u -c localhost ${2:-1738}; }
+function anybar { echo -n $1 | nc -4u -w0 localhost ${2:-1738}; }
 
 # Nicely format the current uptime
 function myuptime () {
