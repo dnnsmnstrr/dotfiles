@@ -221,6 +221,6 @@
 [user]
 	name = Dennis Muensterer
 	email = dennismuensterer@gmail.com
-	signingkey = 505DAA7B12100484
+	signingkey = 0xDB6E00827839C2D6
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg

@@ -1,15 +1,23 @@
 // finicky config (https://github.com/johnste/finicky)
 const defaultBrowser = 'Google Chrome'
+const personalBrowser = {
+  name: 'Google Chrome',
+  profile: 'Default'
+}
+const workBrowser = {
+  name: 'Google Chrome',
+  profile: 'Profile 1' // ~/Library/Application Support/Google/Chrome folder names
+}
 const workUrls = ['hpm.agency', 'hpm.digital', 'hpm.guru', /.*\.hpm.land/, /.*\.hpm.agency$/]
 const devUrls = ['github.com', 'gitlab.com', 'localhost']
 const videoCalling = ['meet.jit.si']
+const personalUrls = ['twitter.com', 'steam.com', 'steampowered.com', 'disneyplus.com']
 
 const DEBUG = true
+const hideIcon = true
 module.exports = {
   defaultBrowser,
-  options: {
-    hideIcon: false
-  },
+  options: { hideIcon },
   handlers: [
     {
       match: ({ keys }) => keys.option && keys.command,
@@ -31,29 +39,23 @@ module.exports = {
       browser: 'org.jitsi.jitsi-meet'
     },
     {
-      // Open in Chrome
+      // Handle work URLs
       match: finicky.matchHostnames([...workUrls, ...videoCalling, ...devUrls, 'chrome.google.com']),
-      browser: {
-        name: 'Google Chrome',
-        profile: 'Default' // ~/Library/Application Support/Google/Chrome folder names
-      }
+      browser: workBrowser
     },
     {
-      match: ({ sourceBundleIdentifier }) => sourceBundleIdentifier === 'com.tinyspeck.slackmacgap' || sourceBundleIdentifier === 'Mattermost.Desktop',
+      // Handle personal URLs
+      match: finicky.matchHostnames(personalUrls),
+      browser: personalBrowser
+    },
+    {
+      match: ({ sourceBundleIdentifier }) => sourceBundleIdentifier === 'Mattermost.Desktop',
       browser: defaultBrowser
-    },
-    {
-      match: finicky.matchHostnames(['apple.com', /example\.(com|org|net)/]),
-      browser: 'Safari'
-    },
-    {
-      // Open youtube in safari
-      match: finicky.matchHostnames(['youtube.com', 'youtube.de', /.*\.youtube.com/]),
-      browser: 'Safari'
     }
   ],
   rewrite: [
     {
+      // Handle work jitsi links
       match: ({ url }) => url.host.endsWith('hpm.guru'),
       url: ({ url }) => {
         const deeplink = 'jitsi-meet:/' + url.pathname
@@ -63,6 +65,3 @@ module.exports = {
     }
   ]
 }
-
-// finicky.notify();
-// finicky.log();
