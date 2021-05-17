@@ -51,7 +51,8 @@ declare -a cask=(
 # Apps for development (-d)
 declare -a dev=(
   # communication
-  slack
+  mattermost
+  jitsi
   zoomus
   # IDE
   arduino
@@ -72,6 +73,7 @@ declare -a dev=(
 	docker
 	gpg-suite-no-mail
 	isimulator
+  java
 	keybase
   react-native-debugger
   # network
@@ -79,6 +81,7 @@ declare -a dev=(
 	# design
 	kap
 	noun-project
+  sf-symbols
   # productivity
   pine
   drawio
