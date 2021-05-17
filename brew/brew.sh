@@ -154,6 +154,7 @@ declare -a brew=(
   fish
   starship
 	zsh
+  zplug
 	# version control
 	git
 	hub
