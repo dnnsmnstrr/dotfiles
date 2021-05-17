@@ -20,6 +20,9 @@ export PATH="$PATH:$HOME/.gem/bin"
 # go
 export PATH="$PATH:$(go env GOPATH)/bin"
 
+# rust
+export PATH="$PATH:$HOME/.cargo/bin"
+
 # MacPorts
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
