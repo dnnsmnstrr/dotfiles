@@ -15,26 +15,26 @@ if [ "$1" '==' "-h" ] ; then
 	echo "-m  Install Mac App Store apps"
 	echo "-n  Install network tools"
 	echo "-p  Install personal apps (entertainment, music, gaming)"
+	echo "-r  Reinstall all current brew installations"
 	return
 elif [ "$#" -gt 1 ]; then
 	echo "Too many parameters"
 	return
 fi
 
-# Useful cask apps
+# Essential apps
 declare -a cask=(
-  spotify
-	# utility
-  alfred
-  anybar
-  barrier
+	spotify # can't live without this
+	aerial
+	alfred
+	anybar
+	barrier
 	bettertouchtool
 	finicky
 	google-chrome
-  karabiner-elements
+	karabiner-elements
 	touch-bar-simulator
 	# quicklook
-	epubquicklook
 	suspicious-package
 	provisionql
 	qlcolorcode
@@ -51,82 +51,88 @@ declare -a cask=(
 # Apps for development (-d)
 declare -a dev=(
   # communication
-  mattermost
-  jitsi
-  zoomus
+	mattermost
+	jitsi-meet
+	zoom
   # IDE
-  arduino
+	arduino
 	atom
-  eclipse-jee # for school
-  android-studio
+	eclipse-jee # for school
+	android-studio
   # VCS
-  github
-  sourcetree
+	github
+	sourcetree
   # CLI
-  hyper
+	hyper
   # DB
-  mysqlworkbench
-  sequel-pro
+	mysqlworkbench
+	sequel-pro
   # tools
 	android-platform-tools
-  adoptopenjdk8
+	adoptopenjdk8
 	docker
 	gpg-suite-no-mail
 	isimulator
-  java
+	java
 	keybase
-  react-native-debugger
+	react-native-debugger
   # network
 	postman
-	# design
+  # web
+	firefox
+  # design
 	kap
 	noun-project
-  sf-symbols
+	sf-symbols
   # productivity
-  pine
-  drawio
+	pine
+	drawio
   # resources
-  wwdc
+	wwdc
 )
 
 # Apps that don't have much professional use (mostly entertainment) (-p)
 declare -a personal=(
-	# audio
+  # audio
+	blackhole
 	boom-3d
 	lyricsx
 	sonic-pi
-	# communication
+	shpotify
+  # communication
 	caprine
-  flume
+	flume
 	telegram
 	whatsapp
-	# gaming
+  # gaming
 	steam
-	# media
-  calibre
+  # making
+	ultimaker-cura
+	# autodesk-fusion360
+  # media
+	calibre
 	downie
 	emojipedia
 	iina
-  obs
-  vnc-viewer
+	obs
+	vnc-viewer
   # screensavers & wallpapers
-  aerial
-  brooklyn
+	brooklyn
 	musaicfm
   # utilities
 	duet
-  hazeover
-  keyboardcleantool
+	hazeover
+	keyboardcleantool
 	philips-hue-sync
-  blackhole
-	# storage
-  grandperspective
+  # storage
+	grandperspective
 	dropbox
-)
-
-declare -a making=(
-  autodesk-fusion360
-  ultimaker-cura
+  # fun
+	asciiquarium
+	cowsay
+	fortune
+	lolcat
+	rtv
 )
 
 declare -a brew=(
@@ -134,54 +140,55 @@ declare -a brew=(
 	moreutils         # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 	findutils         # GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 	gnu-sed           # GNU `sed`, overwriting the built-in `sed`.
-	# languages & frameworks
-  go
+  # languages & frameworks
+	go
 	node
 	php
 	python3
-  pyenv
-  pipenv
+	pyenv
+	pipenv
 	ruby
 	rbenv
-	# downloaders & installers
+  # downloaders & installers
 	wget
 	cask
 	mas
-  mint
+	mint
 	nvm
-	# editors & shells
-  bash
-  fish
-  starship
+  # editors & shells
+	bash
+	fish
+	starship
 	zsh
-  zplug
-	# version control
+	zplug
+  # version control
 	git
 	hub
-  git-gui
-  git-jump
+	git-gui
+	git-jump
 	git-lfs
-  git-standup
-  gh
-  gibo
-	#dev
-  applesimutils
-  arduino-cli
+	git-standup
+	gh
+	gibo
+	svn
+  #dev
+	applesimutils
+	arduino-cli
 	bats
-  bit
+	bit
 	cocoapods
-  fastlane
-  mysql
+	fastlane
+	mysql
 	react-native-cli
-  redis
-  shellcheck
+	redis
+	shellcheck
 	watchman
 	yarn
-	# GnuPG to enable PGP-signing commits.
+  # GnuPG to enable PGP-signing commits.
 	gnupg
 	pinentry
 	pinentry-mac
-	# completion
+  # completion
 	apm-bash-completion
 	bash-completion2
 	brew-cask-completion
@@ -192,7 +199,7 @@ declare -a brew=(
 	zsh-completions
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	# other
+  # other
 	ack
 	gmp
 	grep
@@ -204,52 +211,45 @@ declare -a brew=(
 	thefuck
 	vbindiff
 	watch
-	# media
+  # media
 	imagemagick
 	multimarkdown
-	shpotify
-	# web
-  googler
+  # web
+	googler
 	lynx
 	youtube-dl
-	# system
-  blueutil
-  dark-mode
-  displayplacer
+  # system
+	blueutil
+	dark-mode
+	displayplacer
 	dockutil
-  duti
+	duti
 	htop
 	mackup
 	pv
 	switchaudio-osx
-  scrcpy
-	# files
+	scrcpy
+  # files
 	p7zip
 	pigz
 	rename
 	zopfli
 	xpdf
-	# tools
-  asciinema
+  # tools
+	asciinema
 	calc
-  figlet
-  m-cli
+	figlet
+	m-cli
 	tldr
 	wifi-password
-  z
-	# fun
-  asciiquarium
-	cowsay
-  fortune
-  lolcat
-  rtv
+	z
 )
 
-# Optional: Network utils (-n)
+# (Optional) Network utils (-n)
 declare -a network=(
 	aircrack-ng
-  ask-cli
-  awscli
+	ask-cli
+	awscli
 	bfg
 	binutils
 	binwalk
@@ -274,23 +274,24 @@ declare -a network=(
 	tcpflow
 	tcpreplay
 	tcptrace
-  telnet
+	telnet
 	ucspi-tcp # `tcpserver` etc.
 	xz
 )
 
 # Optional: Mac App Store (-m)
 declare -a mas=(
+	824171161   # Affinity Designer
 	# 424389933   #Final Cut
 	634148309   #Logic
 	# 634159523   #MainStage
-  409183694   #Keynote
-  # 409201541   #Pages
+	409183694   #Keynote
 	# 409203825   #Numbers
+ 	# 409201541   #Pages
 	823766827   #OneDrive
-	1094255754  #Outbank
+	# 1094255754  #Outbank
 	445189367   #PopClip
-  766939888   #1Keyboard
+	766939888   #1Keyboard
 	425424353   #The Unarchiver
 	1284863847  #Unsplash
 	497799835   #Xcode
@@ -298,9 +299,9 @@ declare -a mas=(
 
 declare -a fonts=(
 	source-code-pro
-  fontawesome
-  input
-  roboto
+	fontawesome
+	input
+	roboto
 )
 
 # Scripting starts here
@@ -313,21 +314,21 @@ if test ! "$(brew -v)"; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
-echo "Checking for updates"
-brew update         # Make sure we’re using the latest Homebrew.
-brew upgrade        # Upgrade any already-installed formulae.
-brew outdated --cask  # Check for outdated casks
-brew upgrade --cask   # Update any outdated casks
-
 function brewInstall() {
 	# Taps
 	brew tap homebrew/cask-drivers
 	brew tap homebrew/cask-fonts
-  brew tap buo/cask-upgrade
-  brew tap lukakerr/things
-  brew tap wix/brew
-  brew tap jakehilborn/jakehilborn
-  brew tap mykolaharmash/git-jump
+	brew tap buo/cask-upgrade # 'brew cu [CASK]' to update specific casks
+	brew tap lukakerr/things
+	brew tap wix/brew
+	brew tap jakehilborn/jakehilborn
+	brew tap mykolaharmash/git-jump
+
+	echo "Checking for updates"
+	brew update         # Make sure we’re using the latest Homebrew.
+	brew upgrade        # Upgrade any already-installed formulae.
+	brew outdated       # Check for outdated casks
+	brew cu 			      # Cask-Upgrade
 
 	echo "Installing brew utilities..."
 	for item in "${brew[@]}"; do
@@ -345,28 +346,21 @@ function networkInstall() {
 function caskInstall() {
 	echo "Installing casks..."
 	for app in "${cask[@]}"; do
-		brew cask info "${app}" | grep --quiet 'Not installed' && brew cask install "${app}"
+		brew info "${app}" | grep --quiet 'Not installed' && brew install "${app}"
 	done
 }
 
 function devInstall() {
 	echo "Installing developer casks..."
 	for app in "${dev[@]}"; do
-		brew cask info "${app}" | grep --quiet 'Not installed' && brew cask install "${app}"
+		brew info "${app}" | grep --quiet 'Not installed' && brew install "${app}"
 	done
 }
 
 function personalInstall() {
 	echo "Installing personal casks..."
 	for app in "${personal[@]}"; do
-		brew cask info "${app}" | grep --quiet 'Not installed' && brew cask install "${app}"
-	done
-}
-
-function makerInstall() {
-	echo "Installing personal casks..."
-	for app in "${making[@]}"; do
-		brew cask info "${app}" | grep --quiet 'Not installed' && brew cask install "${app}"
+		brew info "${app}" | grep --quiet 'Not installed' && brew install "${app}"
 	done
 }
 
@@ -381,7 +375,23 @@ function fontInstall() {
   echo "Installing fonts..."
 	for font in "${fonts[@]}"; do
     local fontName="font-${font}";
-		brew cask install "${fontName}"
+		brew install "${fontName}"
+	done
+}
+
+function reinstall() {
+  echo "Reinstalling..."
+	for l in $(brew list) ; do
+		if [ "$1" ] ; then
+			if [[ $l < $1 ]] ; then
+				echo "skipping $l"
+				continue
+			fi
+		fi
+		echo "Remove $l"
+		brew uninstall --ignore-dependencies $l
+		echo "Re-add $l"
+		brew install $l
 	done
 }
 
@@ -394,7 +404,6 @@ case $1 in
     networkInstall
     personalInstall
     masInstall
-    makerInstall
     fontInstall
     ;;
   "-d" | "--dev" )
@@ -414,6 +423,9 @@ case $1 in
   "-m" | "--mas" )
     masInstall
     ;;
+  "-r" | "--reinstall" )
+	reinstall
+	;;
   * )
     echo "Default brew installation"
   	brewInstall

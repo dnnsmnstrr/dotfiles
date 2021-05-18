@@ -6,7 +6,7 @@ alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'" # show non _pre
 # Get macOS Software and App Store Updates, update installed Ruby gems, Homebrew, npm, and their installed packages
 function update() {
 	sudo -v
-  echo -n "yellow" | nc -4u -w0 localhost 1738
+  echo -n "yellow" | nc -4u -w0 localhost 1738 # Anybar status
 	echo "Updating everything!";
 	echo "";
 	sudo softwareupdate -i -a;
@@ -17,6 +17,7 @@ function update() {
 	echo "Brew:"
 	brew update;
 	brew upgrade;
+  brew cu --all
   echo "cleanup";
 	brew cleanup;
   echo "casks";

@@ -1,7 +1,9 @@
 - defaults:
     link:
-      relink: true
-      force: true
+      relink: false
+      force: false
+      # relink: true
+      # force: true
 
 - clean: ['~', '~/.config']
 
@@ -11,7 +13,7 @@
     ~/bin:
       create: true
     ~/.editorconfig: shell/editor/editorconfig
-    ~/.eslintrc: shell/editor/eslintrc
+    ~/.eslintrc.js: shell/editor/.eslintrc.js
     ~/.config/fish:
        create: true
        path: shell/fish

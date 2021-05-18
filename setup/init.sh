@@ -22,7 +22,7 @@ function atom() {
 }
 
 function brew() {
-  ~/.dotfiles/brew/brew.sh
+  ../brew/brew.sh
 }
 
 function defaults {

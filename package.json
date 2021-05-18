@@ -10,7 +10,7 @@
     "pip": "pip install -r ./setup/requirements.txt",
     "update": "npm update -g",
     "brew": "./brew/brew.sh",
-    "macos": "./setup/macos.sh",
+    "macos": "./setup/macos",
     "info": "./bin/info"
   },
   "repository": "https://github.com/dnnsmnstrr/dotfiles.git",

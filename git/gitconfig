@@ -220,7 +220,7 @@
 	smudge = git-lfs smudge -- %f
 [user]
 	name = Dennis Muensterer
-	email = dennismuensterer@gmail.com
+	email = dennismuensterer@aol.com
 	signingkey = 0xDB6E00827839C2D6
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg
