@@ -98,7 +98,7 @@ alias nt='npm test'
 alias nit='npm install && npm test'
 alias nr='npm run'
 alias ns='npm start'
-alias nrm='rm -rf node_modules && npm install'
+alias nrm='find . -name "node_modules" -type d -prune -exec rm -rf '{}' +' # recursively remove node_modules 'find . -name "node_modules" -type d -prune | xargs du -chs' to list them
 alias npl='npm list --global --depth=0'
 alias nhg='npm-home -g'
 alias nhy='npm-home -y'
