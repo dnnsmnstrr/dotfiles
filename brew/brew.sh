@@ -17,7 +17,7 @@ if [ "$1" '==' "-h" ] ; then
 	echo "-p  Install personal apps (entertainment, music, gaming)"
 	echo "-r  Reinstall all current brew installations"
 	return
-elif [ "$#" -gt 1 ]; then
+elif [ "$#" -gt 2 ]; then
 	echo "Too many parameters"
 	return
 fi
@@ -148,6 +148,7 @@ declare -a brew=(
 	pyenv
 	pipenv
 	ruby
+	rust
 	rbenv
   # downloaders & installers
 	wget
@@ -424,7 +425,7 @@ case $1 in
     masInstall
     ;;
   "-r" | "--reinstall" )
-	reinstall
+	reinstall "$@"
 	;;
   * )
     echo "Default brew installation"
