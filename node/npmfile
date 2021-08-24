@@ -51,3 +51,4 @@ generator-electrode
 generator-electron
 generator-license
 generator-rn-toolbox
+@teambit/bvm
