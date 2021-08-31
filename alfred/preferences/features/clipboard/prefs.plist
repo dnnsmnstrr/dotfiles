@@ -19,5 +19,9 @@
 	</dict>
 	<key>snippetKeyword</key>
 	<string>s</string>
+	<key>snippetMatchFields</key>
+	<integer>1</integer>
+	<key>snippetMatchWordBased</key>
+	<false/>
 </dict>
 </plist>
