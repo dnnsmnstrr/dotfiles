@@ -492,6 +492,11 @@ function extract {
 fi
 }
 
+compresspdf() {
+    echo 'Usage: compresspdf [input file] [output file] [screen|ebook|printer|prepress]'
+    gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/${3:-"screen"} -dCompatibilityLevel=1.4 -sOutputFile="$2" "$1"
+}
+
 # Create a new binary file. Takes filename with filetype extension and optional path to store the script.
 # https://brettterpstra.com/2018/05/07/shell-tricks-quick-start-scripts/
 newscript() {

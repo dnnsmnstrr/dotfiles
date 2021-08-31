@@ -107,8 +107,8 @@ alias nhy='npm-home -y'
 alias me='npx dnnsmnstrr'
 alias cra='npx create-react-app '
 alias pods="npx pod-install "
+alias p="npx pod-install "
 
-alias p="pip"
 alias pipi="pip install "
 alias pir="pip install -r requirements.txt"
 
@@ -122,7 +122,8 @@ alias os='osascript'
 ## Developing
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 alias watchos="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator\ \(Watch\).app"
-
+alias xcode11="sudo xcode-select -s /Applications/Xcode11_7.app"
+alias xcode12="sudo xcode-select -s /Applications/Xcode.app"
 ## Networking
 alias ip="curl icanhazip.com"
 # SSH
