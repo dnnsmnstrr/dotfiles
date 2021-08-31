@@ -402,6 +402,8 @@ defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.dock autohide-delay -float 0
 # Remove the animation when hiding/showing the Dock
 # defaults write com.apple.dock autohide-time-modifier -float 0
+# Decrease the animation time when hiding/showing the Dock (Default: 0.5)
+defaults write com.apple.dock autohide-time-modifier -float 0.2
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
@@ -439,10 +441,11 @@ sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.a
 # 10: Put display to sleep
 # 11: Launchpad
 # 12: Notification Center
+# 13: Lock Screen
 
 # Top left screen corner
-defaults write com.apple.dock wvous-tl-corner -int 11
-defaults write com.apple.dock wvous-tl-modifier -int 4
+defaults write com.apple.dock wvous-tl-corner -int 11  # Launchpad
+defaults write com.apple.dock wvous-tl-modifier -int 4 # Desktop
 # Top right screen corner → Desktop
 defaults write com.apple.dock wvous-tr-corner -int 0
 defaults write com.apple.dock wvous-tr-modifier -int 12
