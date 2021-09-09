@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Apps to install
-# Categorized into brew, general casks, developer, personal and mac app store apps
+# Categorized into brew, casks, developer, personal and mac app store apps
 
 if [ "$1" '==' "-h" ] ; then
 	echo "Usage: brewfile"
@@ -104,10 +104,13 @@ declare -a personal=(
 	flume
 	telegram
 	whatsapp
+  # notes
+  obsidian
   # gaming
 	steam
   # making
 	ultimaker-cura
+  balenaetcher
 	# autodesk-fusion360
   # media
 	calibre
@@ -131,7 +134,7 @@ declare -a personal=(
 	asciiquarium
 	cowsay
 	fortune
-	lolcat
+	lolcat # try the cowcat alias
 	rtv
 )
 
@@ -215,6 +218,7 @@ declare -a brew=(
   # media
 	imagemagick
 	multimarkdown
+  glow # markdown renderer
   # web
 	googler
 	lynx
@@ -315,6 +319,9 @@ if test ! "$(brew -v)"; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
+function tryInstall() {
+  brew info "${item}" | grep --quiet 'Not installed' && brew install "${item}"
+}
 function brewInstall() {
 	# Taps
 	brew tap homebrew/cask-drivers
@@ -382,18 +389,17 @@ function fontInstall() {
 
 function reinstall() {
   echo "Reinstalling..."
-	for l in $(brew list) ; do
-		if [ "$1" ] ; then
-			if [[ $l < $1 ]] ; then
-				echo "skipping $l"
-				continue
-			fi
-		fi
-		echo "Remove $l"
-		brew uninstall --ignore-dependencies $l
-		echo "Re-add $l"
-		brew install $l
-	done
+  if [ "$2" ] ; then
+    brew uninstall --ignore-dependencies $2
+    brew install $2 --force
+  else
+  	for l in $(brew list) ; do
+  		echo "Remove $l"
+  		brew uninstall --ignore-dependencies $l
+  		echo "Re-add $l"
+  		brew install $l
+  	done
+  fi
 }
 
 case $1 in
@@ -442,7 +448,6 @@ if [[ "$1" == "-b" ]] || [[ "$1" == "--bundle" ]]; then
   brew bundle dump --force
 elif [[ "$1" == "--doc" ]] || [[ "$1" == "--doctor" ]]; then
   brew doctor
-  brew cask doctor
 else
   echo "Brewing complete ✅"
 fi;
