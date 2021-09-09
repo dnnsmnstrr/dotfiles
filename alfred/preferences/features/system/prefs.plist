@@ -4,6 +4,8 @@
 <dict>
 	<key>ejectKeywordEnabled</key>
 	<true/>
+	<key>ejectallKeywordEnabled</key>
+	<true/>
 	<key>quitallConfirm</key>
 	<true/>
 	<key>restartConfirm</key>
