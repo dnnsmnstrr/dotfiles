@@ -25,7 +25,6 @@ alias extra="open -e ~/.extra"
 alias setup="cd ~/.dotfiles/setup"
 alias init="source ~/.dotfiles/setup/init.sh"
 alias macos="source ~/.dotfiles/setup/macos"
-alias btt="open ~/.dotfiles/btt"
 alias pipfile="setup; pip install -r requirements.txt"
 
 # Brew
@@ -108,6 +107,7 @@ alias me='npx dnnsmnstrr'
 alias cra='npx create-react-app '
 alias pods="npx pod-install "
 
+alias python=/usr/local/bin/python3
 alias p="pip"
 alias pipi="pip install "
 alias pir="pip install -r requirements.txt"
