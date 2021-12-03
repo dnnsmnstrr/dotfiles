@@ -205,6 +205,10 @@ function gcd {
   cd $CLONEPATH
 }
 
+function gco {
+  git checkout -b $1 origin/$1
+}
+
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
 	local tmpFile="${*%/}.tar";
