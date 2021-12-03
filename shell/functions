@@ -3,34 +3,37 @@
 # Functions
 alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'" # show non _prefixed functions
 
+newline(){
+  	echo "";
+}
+
 # Get macOS Software and App Store Updates, update installed Ruby gems, Homebrew, npm, and their installed packages
 function update() {
 	sudo -v
-  echo -n "yellow" | nc -4u -w0 localhost 1738
+  echo -n "yellow" | nc -4u -w0 localhost 1738 # Anybar status
 	echo "Updating everything!";
-	echo "";
+  newline
 	sudo softwareupdate -i -a;
-	echo "";
+	newline
 	echo "Mac App Store:"
 	mas upgrade;
-	echo "";
+	newline
 	echo "Brew:"
 	brew update;
 	brew upgrade;
+  brew cu --all
   echo "cleanup";
 	brew cleanup;
-  echo "casks";
-	brew cask upgrade;
-	echo "";
+	newline
 	echo "npm:"
 	npm install npm -g;
 	npm update -g;
-	echo "";
+	newline
 	echo "Gem:";
 	sudo gem update --system;
 	sudo gem update;
 	sudo gem cleanup;
-	echo "";
+	newline
   echo "Atom Packages";
   apm update
   apm upgrade
@@ -495,6 +498,11 @@ function extract {
 fi
 }
 
+compresspdf() {
+    echo 'Usage: compresspdf [input file] [output file] [screen|ebook|printer|prepress]'
+    gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/${3:-"screen"} -dCompatibilityLevel=1.4 -sOutputFile="$2" "$1"
+}
+
 # Create a new binary file. Takes filename with filetype extension and optional path to store the script.
 # https://brettterpstra.com/2018/05/07/shell-tricks-quick-start-scripts/
 newscript() {
@@ -586,6 +594,7 @@ function bundleid () {
   osascript -e "id of app \"$1\"" | pbcopy && pbpaste && cd - >/dev/null && printf '\n(copied to clipbord)\n\n'
 }
 
+# crop an image to the required size for a telegram sticker
 function sticker (){
   convert $1 -resize 512x512 -background "rgba(0, 0, 0, 0)" -gravity center output.png
 }

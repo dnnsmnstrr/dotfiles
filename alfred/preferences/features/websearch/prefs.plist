@@ -56,6 +56,45 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>84DCB645-1A80-4229-9BE8-0308A748B9FA</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>forum</string>
+			<key>text</key>
+			<string>Search the Alfred Forum for '{query}'</string>
+			<key>url</key>
+			<string>https://www.alfredforum.com/search/?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>C73ADEAB-C620-43A7-AC4D-56429A8CC94C</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>btt</string>
+			<key>text</key>
+			<string>Search the BTT Community for '{query}'</string>
+			<key>url</key>
+			<string>https://community.folivora.ai/search?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>C7F87E87-44F2-44DE-81EE-9C429DFFD627</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>stack</string>
+			<key>text</key>
+			<string>Search YourStack for {query}</string>
+			<key>url</key>
+			<string>https://yourstack.com/search?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>E99B79BD-3FA6-4074-85AB-A750C19F811A</key>
 		<dict>
 			<key>enabled</key>
@@ -79,19 +118,6 @@
 			<string>Search for {query} icons</string>
 			<key>url</key>
 			<string>https://icons.deanishe.net/search/?query={query}</string>
-			<key>utf8</key>
-			<true/>
-		</dict>
-		<key>FBE04A45-4F49-45DC-817E-C4CFCBBB3FCB</key>
-		<dict>
-			<key>enabled</key>
-			<true/>
-			<key>keyword</key>
-			<string>gls</string>
-			<key>text</key>
-			<string>Search hpm gitlab for '{query}'</string>
-			<key>url</key>
-			<string>https://hpm.agency/search?utf8=%E2%9C%93&amp;snippets=&amp;scope=&amp;repository_ref=&amp;search={query}</string>
 			<key>utf8</key>
 			<true/>
 		</dict>

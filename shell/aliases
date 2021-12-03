@@ -5,13 +5,6 @@ alias aliases="alias | sed 's/=.*//'"
 
 ## Bash/ZSH specific
 
-# Git
-alias cdgr='cd "$(git root)"' # cd to git root directory
-
-for method in commit clone checkout merge pull push fetch; do
-	alias "${method}"="git '${method}'"
-done
-
 alias brewfile="source ~/dotfiles/brew/brew.sh"
 alias npmfile='npm install -g $(cat ~/dotfiles/node/npmfile)'
 
@@ -20,11 +13,21 @@ alias locip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 alias captive="curl -s 'http://captive.apple.com'"
 
+## Dev
+# Git
+alias cdgr='cd "$(git root)"' # cd to git root directory
+for method in commit clone checkout merge pull push fetch; do
+  alias "${method}"="git '${method}'"
+done
+# Xcode
+alias xcdefault="sudo xcode-select -s /Applications/Xcode.app"
+alias xc11="sudo xcode-select -s /Applications/Xcode11_7.app"
 # Java
 alias java_versions="/usr/libexec/java_home -V "
 # Show active network interfaces
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 alias pi='ssh pi@raspberrypi.local'
+
 
 ## Apps (these work without alias: github, sourcetree, atom, hyper)
 for method in arduino barrier bettertouchtool notes slack sketch safari terminal trello whatsapp xcode; do
@@ -171,7 +174,10 @@ alias e="x"
 alias quit="exit"
 alias any="anybar"
 alias newfile="newscript"
-alias zm="zoom join "
+
+# https://github.com/busyloop/lolcat
+alias cowcat='fortune | cowsay | lolcat'
+alias devcow='devquote | cowsay | lolcat'
 
 ## lol (only in bash)
 if [ -n "$BASH_VERSION" ]; then
@@ -208,9 +214,10 @@ if [ -n "$BASH_VERSION" ]; then
 
   alias cya='reboot'
   alias kthxbai='halt'
-  # https://github.com/busyloop/lolcat
-  alias cowcat='fortune | cowsay | lolcat'
-  alias devcow='devquote | cowsay | lolcat'
+
+  # the terminal rickroll
+  alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+
   # https://gist.github.com/graceavery/01ec404e555571a4a668c271c8f62e8b
   alias accio=wget
   alias avadaKedavra='rm -f'

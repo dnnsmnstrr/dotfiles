@@ -122,7 +122,8 @@ alias os='osascript'
 ## Developing
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 alias watchos="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator\ \(Watch\).app"
-
+alias xcode11="sudo xcode-select -s /Applications/Xcode11_7.app"
+alias xcode12="sudo xcode-select -s /Applications/Xcode.app"
 ## Networking
 alias ip="curl icanhazip.com"
 # SSH
