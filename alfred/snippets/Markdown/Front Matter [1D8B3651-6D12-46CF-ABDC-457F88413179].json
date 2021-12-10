@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "---\ntitle: {clipboard}\ntags:\n  - {cursor}\n---\n",
+    "uid" : "1D8B3651-6D12-46CF-ABDC-457F88413179",
+    "name" : "Front Matter",
+    "keyword" : "mfm"
+  }
+}
