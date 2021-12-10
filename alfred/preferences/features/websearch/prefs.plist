@@ -56,6 +56,19 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>7AE37583-1D34-47AA-8F67-802340EE5CE1</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>ud</string>
+			<key>text</key>
+			<string>Search Urban Dictionary for '{query}'</string>
+			<key>url</key>
+			<string>https://www.urbandictionary.com/define.php?term={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>84DCB645-1A80-4229-9BE8-0308A748B9FA</key>
 		<dict>
 			<key>enabled</key>
@@ -92,6 +105,19 @@
 			<string>Search YourStack for {query}</string>
 			<key>url</key>
 			<string>https://yourstack.com/search?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>CA3D78D7-21EF-40A2-BC34-FCD94FCEE516</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>genius</string>
+			<key>text</key>
+			<string>Search Genius for '{query}'</string>
+			<key>url</key>
+			<string>https://genius.com/search?q={query}</string>
 			<key>utf8</key>
 			<true/>
 		</dict>
