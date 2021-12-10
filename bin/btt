@@ -1,0 +1,14 @@
+#!/bin/bash
+
+##
+# Run BTT Named Triggers from the command line
+# Requires BTT webserver interface to be activated
+##
+
+if [ -z "$1" ]
+  then
+    echo "No trigger supplied"
+    exit
+fi
+
+curl "http://127.0.0.1:12345/trigger_named/?trigger_name=$*"

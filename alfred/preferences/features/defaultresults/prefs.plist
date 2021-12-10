@@ -14,9 +14,14 @@
 		<string>features.websearch.amazon.fallback</string>
 		<string>features.websearch.custom.E99B79BD-3FA6-4074-85AB-A750C19F811A.fallback</string>
 	</array>
+	<key>fallbacksMode</key>
+	<integer>1</integer>
+	<key>showFolders</key>
+	<true/>
 	<key>showUserDefined</key>
 	<array>
 		<string>com.apple.icns</string>
+		<string>net.daringfireball.markdown</string>
 	</array>
 </dict>
 </plist>

@@ -12,7 +12,7 @@ bytesToHuman() {
 
 # Default arguments
 doUpdates=true
-
+GITHUB_PATH=$HOME/Documents/GitHub
 # Take in arguments
 # Can add more arguments in the future
 while getopts ":n" opt; do
@@ -29,6 +29,16 @@ while getopts ":n" opt; do
         exit
       ;;
   esac
+done
+
+while true; do
+    read -p "Are you sure you want to run this? It could fuck up your shit 💩
+    " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
 done
 
 # Ask for the administrator password upfront
@@ -136,6 +146,11 @@ fi
 if type "npm" &> /dev/null; then
     echo 'Cleanup npm cache...'
     npm cache clean --force
+fi
+
+if [ "$GITHUB_PATH" ]; then
+    echo 'Removing node_modules from /GitHub folder...'
+    find $GITHUB_PATH -name "node_modules" -type d -prune -exec rm -rf '{}' +
 fi
 
 if type "yarn" &> /dev/null; then

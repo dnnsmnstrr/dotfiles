@@ -27,6 +27,7 @@
     ~/.hyper.js: shell/.hyper.js
     ~/.inputrc: shell/.inputrc
     ~/.shell:
+    ~/.npmrc: node/npmrc
     ~/.vim:
       path: .vim
     ~/.vimrc: shell/editor/vimrc

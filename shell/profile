@@ -25,7 +25,6 @@ alias extra="open -e ~/.extra"
 alias setup="cd ~/.dotfiles/setup"
 alias init="source ~/.dotfiles/setup/init.sh"
 alias macos="source ~/.dotfiles/setup/macos"
-alias btt="open ~/.dotfiles/btt"
 alias pipfile="setup; pip install -r requirements.txt"
 
 # Brew
@@ -98,7 +97,7 @@ alias nt='npm test'
 alias nit='npm install && npm test'
 alias nr='npm run'
 alias ns='npm start'
-alias nrm='rm -rf node_modules && npm install'
+alias nrm='find . -name "node_modules" -type d -prune -exec rm -rf '{}' +' # recursively remove node_modules 'find . -name "node_modules" -type d -prune | xargs du -chs' to list them
 alias npl='npm list --global --depth=0'
 alias nhg='npm-home -g'
 alias nhy='npm-home -y'
@@ -107,8 +106,9 @@ alias nhy='npm-home -y'
 alias me='npx dnnsmnstrr'
 alias cra='npx create-react-app '
 alias pods="npx pod-install "
-alias p="npx pod-install "
 
+alias python=/usr/local/bin/python3
+alias p="pip"
 alias pipi="pip install "
 alias pir="pip install -r requirements.txt"
 
