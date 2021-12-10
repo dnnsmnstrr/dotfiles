@@ -21,8 +21,8 @@ function update() {
 	echo "Brew:"
 	brew update;
 	brew upgrade;
-  brew cu --all
-  echo "cleanup";
+  brew cu --all --yes
+  echo "Cleanup";
 	brew cleanup;
 	newline
 	echo "npm:"
@@ -35,8 +35,8 @@ function update() {
 	sudo gem cleanup;
 	newline
   echo "Atom Packages";
-  apm update
-  apm upgrade
+  apm update --no-confirm
+  apm upgrade --no-confirm
 	echo "Finished updating!";
   echo -n "green" | nc -4u -w0 localhost 1738
 }

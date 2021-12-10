@@ -11,12 +11,14 @@
 	<key>hotkey</key>
 	<dict>
 		<key>key</key>
-		<integer>8</integer>
+		<integer>9</integer>
 		<key>mod</key>
-		<integer>1310720</integer>
+		<integer>1572864</integer>
 		<key>string</key>
-		<string>C</string>
+		<string>V</string>
 	</dict>
+	<key>persistFor</key>
+	<integer>3</integer>
 	<key>snippetKeyword</key>
 	<string>s</string>
 	<key>snippetMatchFields</key>
