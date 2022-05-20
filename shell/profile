@@ -35,6 +35,7 @@ alias br="brew reinstall "
 alias bu="brew uninstall "
 alias bl="brew link "
 alias bs="brew search "
+alias bp="sudo chown -R $(whoami) $(brew --prefix)/*" # fix permissions on device with multiple users
 alias bsl="brew services list"
 alias bss="brew services start"
 alias bst="brew services stop"
