@@ -128,8 +128,9 @@ declare -a personal=(
 	keyboardcleantool
 	philips-hue-sync
   # storage
+  bitwarden
+  dropbox
 	grandperspective
-	dropbox
   # fun
 	asciiquarium
 	cowsay
@@ -224,6 +225,7 @@ declare -a brew=(
 	lynx
 	youtube-dl
   # system
+  bitwarden-cli
 	blueutil
 	dark-mode
 	displayplacer
