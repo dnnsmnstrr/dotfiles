@@ -4,25 +4,18 @@ const personalBrowser = {
   name: 'Google Chrome',
   profile: 'Default'
 }
-const workBrowser = {
-  name: 'Google Chrome',
-  profile: 'Profile 1' // ~/Library/Application Support/Google/Chrome folder names
-}
+
 const workUrls = ['hpm.agency', 'hpm.digital', 'hpm.guru', /.*\.hpm.land/, /.*\.hpm.agency$/]
 const devUrls = ['github.com', 'gitlab.com', 'localhost']
 const videoCalling = ['meet.jit.si']
 const personalUrls = ['twitter.com', 'steam.com', 'steampowered.com', 'disneyplus.com']
 
-const DEBUG = true
-const hideIcon = true
+const DEBUG = false
+
 module.exports = {
   defaultBrowser,
-  options: { hideIcon },
+  options: { hideIcon: !DEBUG },
   handlers: [
-    {
-      match: ({ keys }) => keys.option && keys.command,
-      browser: defaultBrowser === 'Google Chrome' ? 'Safari' : defaultBrowser
-    },
     {
 			// Open Spotify links in Spotify.app
       match: finicky.matchHostnames('open.spotify.com'),
@@ -41,7 +34,7 @@ module.exports = {
     {
       // Handle work URLs
       match: finicky.matchHostnames([...workUrls, ...videoCalling, ...devUrls, 'chrome.google.com']),
-      browser: workBrowser
+      browser: defaultBrowser
     },
     {
       // Handle personal URLs
