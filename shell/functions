@@ -427,7 +427,8 @@ function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
-colors() {
+# colors available in terminal (renamed due to conflict with "colors" while using fig)
+showcolors() {
 	local X
 	X=$(tput op)
 	local Y
