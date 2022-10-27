@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>favourites</key>
+	<array>
+		<string>Keyword</string>
+		<string>Run Shortcut</string>
+		<string>Reveal File in Finder</string>
+		<string>Arg and Vars</string>
+		<string>Debug</string>
+		<string>Open URL</string>
+		<string>Copy to Clipboard</string>
+		<string>Script Filter</string>
+		<string>Launch Apps / Files</string>
+	</array>
+</dict>
+</plist>

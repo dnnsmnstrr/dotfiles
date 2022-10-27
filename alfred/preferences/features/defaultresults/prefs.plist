@@ -16,6 +16,8 @@
 	</array>
 	<key>fallbacksMode</key>
 	<integer>1</integer>
+	<key>showDocuments</key>
+	<true/>
 	<key>showFolders</key>
 	<true/>
 	<key>showUserDefined</key>

@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/bin/bash
 
 // Required parameters:
 // @raycast.schemaVersion 1
@@ -14,5 +14,4 @@
 // @raycast.author Dennis Muensterer
 // @raycast.authorURL https://github.com/dnnsmnstrr
 
-console.log("Hello World!")
-
+open ~/dotfiles
