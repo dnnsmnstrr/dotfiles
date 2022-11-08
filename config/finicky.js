@@ -58,7 +58,7 @@ module.exports = {
     {
       // Handle work jitsi links
       match: ({ url }) => url.host.includes('meet.' + WORK_DOMAIN),
-      url: ({ url }) => 'jitsi-meet:/' + url.pathname}
+      url: ({ url }) => 'jitsi-meet:/' + url.pathname
     }
   ]
 }
