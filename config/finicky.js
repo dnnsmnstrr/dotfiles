@@ -5,7 +5,8 @@ const personalBrowser = {
   profile: 'Default'
 }
 
-const workUrls = ['hpm.agency', 'hpm.digital', 'hpm.guru', /.*\.hpm.land/, /.*\.hpm.agency$/]
+const WORK_DOMAIN = 'hpm.agency'
+const workUrls = [WORK_DOMAIN, 'hpm.digital', 'hpm.guru', /.*\.hpm.land/, /.*\.hpm.agency$/]
 const devUrls = ['github.com', 'gitlab.com', 'localhost']
 const videoCalling = ['meet.jit.si']
 const personalUrls = ['twitter.com', 'steam.com', 'steampowered.com', 'disneyplus.com']
@@ -14,7 +15,10 @@ const DEBUG = false
 
 module.exports = {
   defaultBrowser,
-  options: { hideIcon: !DEBUG },
+  options: {
+    hideIcon: !DEBUG,
+    logRequests: DEBUG
+  },
   handlers: [
     {
 			// Open Spotify links in Spotify.app
@@ -30,6 +34,10 @@ module.exports = {
       // Open jitsi links directly in client
       match: ({ url }) => url.protocol === 'jitsi-meet',
       browser: 'org.jitsi.jitsi-meet'
+    },
+    {
+      match: 'https://www.figma.com/file/*',
+      browser: 'Figma'
     },
     {
       // Handle work URLs
@@ -49,12 +57,8 @@ module.exports = {
   rewrite: [
     {
       // Handle work jitsi links
-      match: ({ url }) => url.host.endsWith('hpm.guru'),
-      url: ({ url }) => {
-        const deeplink = 'jitsi-meet:/' + url.pathname
-        finicky.log(deeplink)
-        return deeplink
-      }
+      match: ({ url }) => url.host.includes('meet.' + WORK_DOMAIN),
+      url: ({ url }) => 'jitsi-meet:/' + url.pathname}
     }
   ]
 }
