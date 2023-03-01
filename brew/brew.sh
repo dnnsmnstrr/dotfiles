@@ -24,28 +24,14 @@ fi
 
 # Essential apps
 declare -a cask=(
-	spotify # can't live without this
-	aerial
-	alfred
-	anybar
-	barrier
-	bettertouchtool
-	finicky
+	spotify # can't live without music
 	google-chrome
-	karabiner-elements
-	touch-bar-simulator
-	# quicklook
-	suspicious-package
-	provisionql
-	qlcolorcode
-	qlimagesize
-	qlmarkdown
-	qlplayground
-	qlstephen
-	qlvideo
-	quicklook-csv
-	quicklook-json
-	webpquicklook
+	raycast
+	alfred
+	bettertouchtool
+	finicky # browser defaults
+	aerial # screensaver
+	monitorcontrol
 )
 
 # Apps for development (-d)
@@ -53,12 +39,9 @@ declare -a dev=(
   # communication
 	mattermost
 	jitsi-meet
-	zoom
   # IDE
 	arduino
-	atom
-	eclipse-jee # for school
-	android-studio
+	visual-studio-code
   # VCS
 	github
 	sourcetree
@@ -69,26 +52,28 @@ declare -a dev=(
 	sequel-pro
   # tools
 	android-platform-tools
-	adoptopenjdk8
+	temurin # java
 	docker
-	gpg-suite-no-mail
-	isimulator
+	#isimulator
 	java
 	keybase
 	react-native-debugger
+
   # network
 	postman
+	vnc-viewer
+  mullvadvpn
   # web
 	firefox
+	bitwarden
   # design
-	kap
-	noun-project
+	#kap
+	#noun-project
 	sf-symbols
   # productivity
-	pine
 	drawio
   # resources
-	wwdc
+	#wwdc
 )
 
 # Apps that don't have much professional use (mostly entertainment) (-p)
@@ -111,14 +96,13 @@ declare -a personal=(
   # making
 	ultimaker-cura
   balenaetcher
-	# autodesk-fusion360
+	#autodesk-fusion360
   # media
 	calibre
 	downie
 	emojipedia
 	iina
 	obs
-	vnc-viewer
   # screensavers & wallpapers
 	brooklyn
 	musaicfm
@@ -127,9 +111,9 @@ declare -a personal=(
 	hazeover
 	keyboardcleantool
 	philips-hue-sync
+	touch-bar-simulator
   # storage
-  bitwarden
-  dropbox
+ 	dropbox
 	grandperspective
   # fun
 	asciiquarium
@@ -137,6 +121,7 @@ declare -a personal=(
 	fortune
 	lolcat # try the cowcat alias
 	rtv
+	anybar
 )
 
 declare -a brew=(
@@ -156,7 +141,6 @@ declare -a brew=(
 	rbenv
   # downloaders & installers
 	wget
-	cask
 	mas
 	mint
 	nvm
@@ -165,10 +149,10 @@ declare -a brew=(
 	fish
 	starship
 	zsh
-	zplug
   # version control
 	git
 	hub
+	glab # gitlab-cli
 	git-gui
 	git-jump
 	git-lfs
@@ -183,9 +167,8 @@ declare -a brew=(
 	bit
 	cocoapods
 	fastlane
-	mysql
-	react-native-cli
-	redis
+	#mysql
+	#redis
 	shellcheck
 	watchman
 	yarn
@@ -194,13 +177,11 @@ declare -a brew=(
 	pinentry
 	pinentry-mac
   # completion
-	apm-bash-completion
 	bash-completion2
 	brew-cask-completion
 	pip-completion
 	open-completion
 	yarn-completion
-	apm-bash-completion
 	zsh-completions
 	zsh-autosuggestions
 	zsh-syntax-highlighting
@@ -219,13 +200,12 @@ declare -a brew=(
   # media
 	imagemagick
 	multimarkdown
-  glow # markdown renderer
+  	glow # markdown renderer
   # web
 	googler
-	lynx
 	youtube-dl
   # system
-  bitwarden-cli
+  	bitwarden-cli
 	blueutil
 	dark-mode
 	displayplacer
@@ -233,14 +213,11 @@ declare -a brew=(
 	duti
 	htop
 	mackup
-	pv
 	switchaudio-osx
 	scrcpy
   # files
 	p7zip
-	pigz
 	rename
-	zopfli
 	xpdf
   # tools
 	asciinema
@@ -288,20 +265,21 @@ declare -a network=(
 
 # Optional: Mac App Store (-m)
 declare -a mas=(
-	824171161   # Affinity Designer
-	# 424389933   #Final Cut
-	634148309   #Logic
-	# 634159523   #MainStage
-	409183694   #Keynote
-	# 409203825   #Numbers
- 	# 409201541   #Pages
-	823766827   #OneDrive
-	# 1094255754  #Outbank
-	445189367   #PopClip
-	766939888   #1Keyboard
-	425424353   #The Unarchiver
-	1284863847  #Unsplash
-	497799835   #Xcode
+	#824171161   # Affinity Designer
+	#424389933   # Final Cut
+	#634148309   # Logic
+	#634159523   # MainStage
+	#409183694   # Keynote
+	409203825   # Numbers
+ 	#409201541   # Pages
+	#823766827   # OneDrive
+	445189367   # PopClip
+	#766939888   # 1Keyboard
+	425424353   # The Unarchiver
+	#1284863847  # Unsplash
+	497799835   # Xcode
+        413897608   # Pastel
+        1554235898  # Peek (Quicklook)
 )
 
 declare -a fonts=(

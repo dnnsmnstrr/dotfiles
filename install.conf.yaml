@@ -1,9 +1,7 @@
 - defaults:
     link:
-      relink: false
-      force: false
-      # relink: true
-      # force: true
+      relink: true
+      force: true
 
 - clean: ['~', '~/.config']
 
@@ -32,11 +30,6 @@
       path: .vim
     ~/.vimrc: shell/editor/vimrc
     ~/.zshrc: shell/zsh/zshrc
-
-- create:
-    - ~/.locations
-    - ~/.hushlogin
-    - ~/.extra
 
 - shell:
   - git submodule sync --recursive
