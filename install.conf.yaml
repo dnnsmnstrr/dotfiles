@@ -22,6 +22,8 @@
     ~/.gitconfig: git/gitconfig
     ~/.gitattributes: git/gitattributes
     ~/.gitignore: git/gitignore_global
+    ~/.gnupg/gpg-agent.conf: gpg/gpg-agent.conf
+    ~/.gnupg/gpg.conf: gpg/gpg.conf
     ~/.hyper.js: shell/.hyper.js
     ~/.inputrc: shell/.inputrc
     ~/.shell:
@@ -33,11 +35,11 @@
 
 - shell:
   - git submodule sync --recursive
-  - [git submodule update --init --recursive, Installing submodules]
-  - [git submodule update --remote  --recursive, Updating submodules]
-  -
-    command: source ./setup/init.sh
-    stdin: true
-    stdout: true
-    description: Running init
-    quiet: false
+  # - [git submodule update --init --recursive, Installing submodules]
+  # - [git submodule update --remote  --recursive, Updating submodules]
+  # -
+  #   command: source ./setup/init.sh
+  #   stdin: true
+  #   stdout: true
+  #   description: Running init
+  #   quiet: false
