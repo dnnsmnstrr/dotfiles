@@ -36,33 +36,15 @@ xkcd ([#1806](https://xkcd.com/1806/))
 
 You can clone the repository wherever you want. (I like to keep it in `~/.dotfiles`) The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
-```bash
-git clone https://github.com/dnnsmnstrr/dotfiles.git && cd .dotfiles/setup && source bootstrap.sh
+```sh
+git clone https://github.com/dnnsmnstrr/dotfiles.git && cd .dotfiles && ./install
 ```
 
-To update, `cd` into your local `dotfiles/setup` folder and then:
+### Oh My Zsh
 
-```bash
-source bootstrap.sh
 ```
-
-Alternatively, to update while avoiding the confirmation prompt:
-
-```bash
-set -- -f; source bootstrap.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-
-There are also the aliases `bootstrap` or `sd` (source dotfiles)
-
-### Git-free install
-
-To install these dotfiles without Git:
-
-```bash
-cd; curl -#L https://github.com/dnnsmnstrr/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,.osx,LICENSE-MIT.txt}
-```
-
-To update later on, just run that command again.
 
 ### Specify the `$PATH`
 
@@ -108,7 +90,7 @@ Definitely go through and check each setting before running, this can change som
 When setting up a new Mac, you may want to install some common [Homebrew](https://brew.sh/) formulae (after installing Homebrew, of course):
 
 ```bash
-./.dotfiles/setup/brew.sh
+./.dotfiles/brew/brew.sh
 ```
 
 (aliases)
