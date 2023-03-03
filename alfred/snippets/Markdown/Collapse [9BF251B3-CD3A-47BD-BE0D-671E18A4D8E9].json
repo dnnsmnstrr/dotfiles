@@ -3,6 +3,6 @@
     "snippet" : "<details>\n  <summary>{clipboard}<\/summary>\n  {cursor}\n<\/details>",
     "uid" : "9BF251B3-CD3A-47BD-BE0D-671E18A4D8E9",
     "name" : "Collapse",
-    "keyword" : "mdc"
+    "keyword" : "mdcl"
   }
 }

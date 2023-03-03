@@ -51,14 +51,14 @@ declare -a dev=(
 	mysqlworkbench
 	sequel-pro
   # tools
+	docker
 	android-platform-tools
 	temurin # java
-	docker
 	#isimulator
 	java
 	keybase
 	react-native-debugger
-
+  gpg-suite-no-mail
   # network
 	postman
 	vnc-viewer
@@ -154,7 +154,6 @@ declare -a brew=(
 	hub
 	glab # gitlab-cli
 	git-gui
-	git-jump
 	git-lfs
 	git-standup
 	gh
@@ -163,7 +162,6 @@ declare -a brew=(
   #dev
 	applesimutils
 	arduino-cli
-	bats
 	bit
 	cocoapods
 	fastlane
@@ -174,10 +172,8 @@ declare -a brew=(
 	yarn
   # GnuPG to enable PGP-signing commits.
 	gnupg
-	pinentry
 	pinentry-mac
   # completion
-	bash-completion2
 	brew-cask-completion
 	pip-completion
 	open-completion
@@ -202,7 +198,6 @@ declare -a brew=(
 	multimarkdown
   	glow # markdown renderer
   # web
-	googler
 	youtube-dl
   # system
   	bitwarden-cli
@@ -274,12 +269,14 @@ declare -a mas=(
  	#409201541   # Pages
 	#823766827   # OneDrive
 	445189367   # PopClip
-	#766939888   # 1Keyboard
+	# 766939888   # 1Keyboard
 	425424353   # The Unarchiver
 	#1284863847  # Unsplash
 	497799835   # Xcode
-        413897608   # Pastel
-        1554235898  # Peek (Quicklook)
+  413897608   # Pastel
+  1554235898  # Peek (Quicklook)
+  1453273600  # Data Jar
+  1211437633  # Universe
 )
 
 declare -a fonts=(
@@ -296,7 +293,7 @@ echo "Let's brew 🍻"
 # Check for homebrew
 if test ! "$(brew -v)"; then
 	echo "Installing homebrew"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 function tryInstall() {
@@ -310,7 +307,6 @@ function brewInstall() {
 	brew tap lukakerr/things
 	brew tap wix/brew
 	brew tap jakehilborn/jakehilborn
-	brew tap mykolaharmash/git-jump
 
 	echo "Checking for updates"
 	brew update         # Make sure we’re using the latest Homebrew.
@@ -334,21 +330,21 @@ function networkInstall() {
 function caskInstall() {
 	echo "Installing casks..."
 	for app in "${cask[@]}"; do
-		brew info "${app}" | grep --quiet 'Not installed' && brew install "${app}"
+		brew info "${app}" | grep --quiet 'Not installed' && brew install --cask "${app}"
 	done
 }
 
 function devInstall() {
 	echo "Installing developer casks..."
 	for app in "${dev[@]}"; do
-		brew info "${app}" | grep --quiet 'Not installed' && brew install "${app}"
+		brew info "${app}" | grep --quiet 'Not installed' && brew install --cask "${app}"
 	done
 }
 
 function personalInstall() {
 	echo "Installing personal casks..."
 	for app in "${personal[@]}"; do
-		brew info "${app}" | grep --quiet 'Not installed' && brew install "${app}"
+		brew info "${app}" | grep --quiet 'Not installed' && brew install --cask "${app}"
 	done
 }
 
