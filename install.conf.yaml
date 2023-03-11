@@ -19,6 +19,7 @@
        create: true
        path: shell/fish/omf
     ~/.finicky.js: config/finicky.js
+    ~/massCode/db.json: apps/massCode.json
     ~/.gitconfig: git/gitconfig
     ~/.gitattributes: git/gitattributes
     ~/.gitignore: git/gitignore_global

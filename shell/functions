@@ -99,6 +99,11 @@ function console() {
 	osascript -e 'tell application "BetterTouchTool" to trigger_named_async_without_response "run trigger"'
 }
 
+function trigger_named() {
+    osascript -e "tell application \"BetterTouchTool\" to trigger_named \"$1\""
+}
+
+
 # Make all binaries in folder executable (or given input file)
 function exe() {
   if [ $# -eq 0 ]; then
