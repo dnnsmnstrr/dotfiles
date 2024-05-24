@@ -220,3 +220,6 @@
 [user]
 	name = Dennis Muensterer
 	email = dm@hpm.agency
+
+[gpg]
+	program = /opt/homebrew/bin/gpg
