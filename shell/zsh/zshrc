@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -5,7 +7,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#!/bin/sh
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export DOTFILES=$HOME/dotfiles
@@ -21,10 +22,9 @@ ZSH_THEME_RANDOM_QUIET=true
 ZSH_DISABLE_COMPFIX="true"
 
 # Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# or blacklist certain themes:
+# ZSH_THEME_RANDOM_IGNORED=(pygmalion tjkirch_mod)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -68,7 +68,7 @@ COMPLETION_WAITING_DOTS="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -78,23 +78,28 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew git pip pod python react-native sudo thefuck)
+plugins=(
+  brew 
+  git 
+  macos  
+  sudo
+  thefuck
+)
 
-# Brew Completion
-if type brew &>/dev/null; then
-	FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
 
-
+# OMZ
 source $ZSH/oh-my-zsh.sh
 
+# outsourced shell configurations
 source ~/.shell/zsh/.zsh_profile
 source ~/.shell/paths
 source ~/.shell/profile
 source ~/.shell/exports
 source ~/.shell/aliases
 source ~/.shell/functions
-source ~/.extra
+if [ -f ~/.extra ]; then
+  source ~/.extra
+fi
 
 # User configuration
 
@@ -124,34 +129,33 @@ alias theme="echo $RANDOM_THEME"
 alias reload!='. ~/.zshrc'
 
 # source z
-. /usr/local/etc/profile.d/z.sh
+if [ -f /usr/local/etc/profile.d/z.sh ]; then
+  . /usr/local/etc/profile.d/z.sh
+fi
 
-# completions
+# Completions
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
   autoload -Uz compinit
   compinit
 fi
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # Activate plugins
-if [ -f $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash ]; then
-    . $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash
-fi
-# pyenv
-eval "$(pyenv init -)"
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-
-# tabtab source for yarn package
-# uninstall by removing these lines or running `tabtab uninstall yarn`
-[[ -f /usr/local/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh ]] && . /usr/local/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh
-
+# STFU (set the fuck up) https://github.com/nvbn/thefuck
 eval $(thefuck --alias)
 
-export PATH="/usr/local/opt/openldap/bin:$PATH"
-export PATH="/usr/local/opt/openldap/sbin:$PATH"
 
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+# UNUSED STUFF
+
+# pyenv
+# eval "$(pyenv init -)"
+
+# export PATH="/usr/local/opt/openldap/bin:$PATH"
+# export PATH="/usr/local/opt/openldap/sbin:$PATH"
+
+# export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

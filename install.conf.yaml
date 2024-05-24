@@ -6,20 +6,12 @@
 - clean: ['~', '~/.config']
 
 - link:
-    ~/Library/Application Support/Alfred/Alfred.alfredpreferences: alfred
     ~/.bashrc: shell/bash/bashrc
     ~/bin:
       create: true
     ~/.editorconfig: shell/editor/editorconfig
     ~/.eslintrc.js: shell/editor/.eslintrc.js
-    ~/.config/fish:
-       create: true
-       path: shell/fish
-    ~/.config/omf:
-       create: true
-       path: shell/fish/omf
     ~/.finicky.js: config/finicky.js
-    ~/massCode/db.json: apps/massCode.json
     ~/.gitconfig: git/gitconfig
     ~/.gitattributes: git/gitattributes
     ~/.gitignore: git/gitignore_global
@@ -35,12 +27,12 @@
     ~/.zshrc: shell/zsh/zshrc
 
 - shell:
-  - git submodule sync --recursive
+  # - git submodule sync --recursive
   # - [git submodule update --init --recursive, Installing submodules]
   # - [git submodule update --remote  --recursive, Updating submodules]
-  # -
-  #   command: source ./setup/init.sh
-  #   stdin: true
-  #   stdout: true
-  #   description: Running init
-  #   quiet: false
+  -
+    command: source ./setup/init.sh
+    stdin: true
+    stdout: true
+    description: Running init
+    quiet: false

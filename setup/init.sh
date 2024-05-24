@@ -5,28 +5,23 @@ if [ "$1" '==' "-h" ] ; then
 	echo "Default: init"
 	echo "Options: "
   echo "-h  Show this message"
-  echo "-a  Set up atom settings sync"
   echo "-d  Set defaults using duti"
 	echo "-g  Install Gemfile"
 	echo "-n  Install node apps & nvm"
 	echo "-p  Install python requirements"
+	echo "-z  Install Oh-My-Zsh"
 	return
 elif [ "$#" -gt 1 ]; then
 	echo "Too many parameters. Run one config at a time. "
 	return
 fi
 
-function atom() {
-  apm install sync-settings
-  # Gist-ID: 92968648b5ea54edbee216e87e52c15e
-}
-
 function brew() {
   ../brew/brew.sh
 }
 
 function defaults {
-  info 'Setting default apps.'
+  info 'Setting default apps.' # requires duti to be installed
 
   # General extensions
   # for ext in {aac,avi,f4v,flac,m4a,m4b,mkv,mov,mp3,mp4,mpeg,mpg,part,wav,webm}; do duti -s io.mpv "${ext}" all; done # Media
@@ -78,14 +73,8 @@ function nvm() {
 }
 
 function omz() {
-  echo "Installing oh-my-zsh"
+  echo "Installing oh-my-zsh" # https://ohmyz.sh/
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-}
-
-function omf() {
-  echo "Installing oh-my-fish"
-  curl -L https://get.oh-my.fish | fish
-  omf install brew fish-spec hub osx weather cd fonts node spark xcode config gh omf tab z
 }
 
 function mac-cli() {
@@ -93,29 +82,15 @@ function mac-cli() {
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/master/mac-cli/tools/install)"
 }
 
-function locationchanger() {
-  echo "Install location changer" # https://github.com/kyletmiller/locationchanger
-  curl -L https://github.com/dnnsmnstrr/locationchanger/raw/master/locationchanger.sh | bash
-}
-
 case $1 in
-  "-a" | "--atom" )
-    atom
-    ;;
   "-b" | "--brew" )
     brew
     ;;
   "-d" | "--defaults" )
     defaults
     ;;
-  "-f" | "--fish" )
-    omf
-    ;;
   "-g" | "--gitlab" )
     gitlab
-    ;;
-  "-l" | "--location" )
-    locationchanger
     ;;
   "-n" | "--node" )
     npm
@@ -123,7 +98,6 @@ case $1 in
     ;;
   "-o" | "--other" )
     omz
-    omf
     mac-cli
     ;;
   "-p" | "--python" )
@@ -131,9 +105,7 @@ case $1 in
     ;;
   * )
   echo "Initializing setup"
-	brew
-  atom
-  defaults
+  omz
 	echo "For specific categories, run again with appropriate flags (-h for more info)"
     ;;
 esac
