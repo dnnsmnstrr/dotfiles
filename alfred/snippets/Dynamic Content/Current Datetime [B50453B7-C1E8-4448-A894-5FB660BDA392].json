@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "{datetime:short}",
-    "uid" : "B50453B7-C1E8-4448-A894-5FB660BDA392",
-    "name" : "Current Datetime",
-    "keyword" : "dt"
-  }
-}

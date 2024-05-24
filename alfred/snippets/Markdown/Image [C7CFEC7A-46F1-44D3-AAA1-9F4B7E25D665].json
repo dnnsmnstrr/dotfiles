@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "![{cursor}]({clipboard})",
-    "uid" : "C7CFEC7A-46F1-44D3-AAA1-9F4B7E25D665",
-    "name" : "Image",
-    "keyword" : "img"
-  }
-}

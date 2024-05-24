@@ -1,9 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "📤",
-    "dontautoexpand" : true,
-    "uid" : "e70bf659-85dd-417b-8093-addbf44115b6",
-    "name" : "📤 outbox tray",
-    "keyword" : ":outbox_tray:"
-  }
-}

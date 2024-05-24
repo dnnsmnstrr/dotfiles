@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "{date:yyyy-MM-dd}",
-    "uid" : "2FA0D7E9-BFC1-41D6-B4EA-99B71EF6978D",
-    "name" : "Current Date (ISO Format)",
-    "keyword" : "date"
-  }
-}

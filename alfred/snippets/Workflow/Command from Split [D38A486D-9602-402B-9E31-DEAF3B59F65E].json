@@ -1,9 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "{var:split{cursor}}",
-    "dontautoexpand" : true,
-    "uid" : "D38A486D-9602-402B-9E31-DEAF3B59F65E",
-    "name" : "Command from Split",
-    "keyword" : "split"
-  }
-}

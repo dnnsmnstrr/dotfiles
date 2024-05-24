@@ -1,9 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "{var:arg}",
-    "dontautoexpand" : true,
-    "uid" : "40043092-7FFE-4ABB-AB5A-D21ED649C12F",
-    "name" : "arg",
-    "keyword" : "arg"
-  }
-}
