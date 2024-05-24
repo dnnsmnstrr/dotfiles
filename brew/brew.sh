@@ -24,13 +24,12 @@ fi
 
 # Essential apps
 declare -a cask=(
+	bitwarden # can't use things if you can't log in
 	spotify # can't live without music
 	google-chrome
 	raycast
-	alfred
 	bettertouchtool
 	finicky # browser defaults
-	aerial # screensaver
 	monitorcontrol
 )
 
@@ -42,34 +41,33 @@ declare -a dev=(
   # IDE
 	arduino
 	visual-studio-code
+  # web
+	firefox
   # VCS
 	github
-	sourcetree
+	#sourcetree
   # CLI
-	hyper
-  # DB
-	mysqlworkbench
-	sequel-pro
+	#hyper
   # tools
 	docker
 	android-platform-tools
 	temurin # java
+	#java
 	#isimulator
-	java
 	keybase
-	react-native-debugger
-  gpg-suite-no-mail
+	#react-native-debugger
+  	#gpg-suite-no-mail
+  # DB
+	#mysqlworkbench
+	#sequel-pro
   # network
-	postman
-	vnc-viewer
-  mullvadvpn
-  # web
-	firefox
-	bitwarden
+	#postman
+	#vnc-viewer
+    #mullvadvpn
   # design
+	sf-symbols
 	#kap
 	#noun-project
-	sf-symbols
   # productivity
 	drawio
   # resources
@@ -90,12 +88,12 @@ declare -a personal=(
 	telegram
 	whatsapp
   # notes
-  obsidian
+    obsidian
   # gaming
 	steam
   # making
 	ultimaker-cura
-  balenaetcher
+    balenaetcher
 	#autodesk-fusion360
   # media
 	calibre
@@ -104,6 +102,7 @@ declare -a personal=(
 	iina
 	obs
   # screensavers & wallpapers
+	aerial
 	brooklyn
 	musaicfm
   # utilities
@@ -120,7 +119,6 @@ declare -a personal=(
 	cowsay
 	fortune
 	lolcat # try the cowcat alias
-	rtv
 	anybar
 )
 
@@ -158,25 +156,26 @@ declare -a brew=(
 	git-standup
 	gh
 	gibo
-	svn
+	#svn
   #dev
 	applesimutils
 	arduino-cli
-	bit
-	cocoapods
-	fastlane
+	#bit
+	#cocoapods
+	#fastlane
 	#mysql
 	#redis
-	shellcheck
-	watchman
+	#shellcheck
+	#watchman
 	yarn
   # GnuPG to enable PGP-signing commits.
 	gnupg
+	gpg2
 	pinentry-mac
   # completion
 	brew-cask-completion
-	pip-completion
-	open-completion
+	#pip-completion
+	#open-completion
 	yarn-completion
 	zsh-completions
 	zsh-autosuggestions
@@ -186,8 +185,8 @@ declare -a brew=(
 	gmp
 	grep
 	jq
-	rlwrap
-	screen
+	#rlwrap
+	#screen
 	ssh-copy-id
 	tree
 	thefuck
@@ -200,10 +199,10 @@ declare -a brew=(
   # web
 	youtube-dl
   # system
+	jakehilborn/jakehilborn/displayplacer
   	bitwarden-cli
 	blueutil
 	dark-mode
-	displayplacer
 	dockutil
 	duti
 	htop
@@ -273,10 +272,10 @@ declare -a mas=(
 	425424353   # The Unarchiver
 	#1284863847  # Unsplash
 	497799835   # Xcode
-  413897608   # Pastel
-  1554235898  # Peek (Quicklook)
-  1453273600  # Data Jar
-  1211437633  # Universe
+	413897608   # Pastel
+	1554235898  # Peek (Quicklook)
+	1453273600  # Data Jar
+	1211437633  # Universe
 )
 
 declare -a fonts=(
@@ -301,18 +300,13 @@ function tryInstall() {
 }
 function brewInstall() {
 	# Taps
-	brew tap homebrew/cask-drivers
-	brew tap homebrew/cask-fonts
 	brew tap buo/cask-upgrade # 'brew cu [CASK]' to update specific casks
-	brew tap lukakerr/things
-	brew tap wix/brew
-	brew tap jakehilborn/jakehilborn
 
 	echo "Checking for updates"
 	brew update         # Make sure we’re using the latest Homebrew.
 	brew upgrade        # Upgrade any already-installed formulae.
 	brew outdated       # Check for outdated casks
-	brew cu 			      # Cask-Upgrade
+	brew cu 			# Cask-Upgrade
 
 	echo "Installing brew utilities..."
 	for item in "${brew[@]}"; do
