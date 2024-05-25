@@ -17,7 +17,7 @@ elif [ "$#" -gt 1 ]; then
 fi
 
 function brew() {
-  ../brew/brew.sh
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 function defaults {
@@ -32,7 +32,7 @@ function defaults {
 
   # Affinity apps (use beta versions when possible)
   # Whenever a stable is more recent than the beta, the beta cannot be used, so we need to detect which is latest and always use that
-local afd_id='com.seriflabs.affinitydesigner'
+  local afd_id='com.seriflabs.affinitydesigner'
   # local afp_id='com.seriflabs.affinityphoto'
 
   local afd_location="$(mdfind kMDItemCFBundleIdentifier = "${afd_id}")"
@@ -93,8 +93,8 @@ case $1 in
     gitlab
     ;;
   "-n" | "--node" )
-    npm
     nvm
+    npm
     ;;
   "-o" | "--other" )
     omz
@@ -105,9 +105,8 @@ case $1 in
     ;;
   * )
   echo "Initializing setup"
+  brew
   omz
 	echo "For specific categories, run again with appropriate flags (-h for more info)"
     ;;
 esac
-
-return

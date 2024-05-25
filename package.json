@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "npm install -g $(cat ./node/npmfile) && ./brew/brew.sh",
     "pip": "pip install -r ./setup/requirements.txt",
+    "setup": "./setup/init.sh",
     "update": "npm update -g",
     "brew": "./brew/brew.sh",
     "macos": "./setup/macos",

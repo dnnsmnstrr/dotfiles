@@ -21,6 +21,8 @@
     ~/.inputrc: shell/.inputrc
     ~/.shell:
     ~/.npmrc: node/npmrc
+    ~/.nvm:
+      create: true
     ~/.vim:
       path: .vim
     ~/.vimrc: shell/editor/vimrc
