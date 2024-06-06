@@ -35,5 +35,6 @@ export MANPAGER='less -X';
 # Avoid issues with `gpg` as installed via Homebrew.
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
+alias pinentry='pinentry-mac'
 
 export TASTE_API_KEY="354173-taste-06LTMGE2"

@@ -188,7 +188,6 @@
 [github]
 
   user="dnnsmnstrr"
-
 # URL shorthands
 
 [url "git@github.com:"]
@@ -219,7 +218,7 @@
 
 [user]
 	name = Dennis Muensterer
-	email = dm@hpm.agency
-
+	email = dennismuensterer@gmail.com
+	signingkey = 24903B5E87402DC3791D14C9505DAA7B12100484
 [gpg]
-	program = /opt/homebrew/bin/gpg
+	program = /usr/local/MacGPG2/bin/gpg2

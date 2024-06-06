@@ -34,8 +34,9 @@ export PATH="/usr/local/bin/react-native:$PATH"
 # export PATH="/usr/local/opt/flutter/bin:$PATH"
 
 # java
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 # export JAVA_HOME=$(/usr/libexec/java_home)
-# export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$PATH:$JAVA_HOME/bin
 
 # android
 export PATH=$PATH:$ANDROID_HOME/emulator
