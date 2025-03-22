@@ -1,6 +1,16 @@
-# Dennis’s dotfiles [![Build Status](https://travis-ci.com/dnnsmnstrr/dotfiles.svg?branch=master)](https://travis-ci.com/dnnsmnstrr/dotfiles) ![GitHub language count](https://img.shields.io/github/languages/count/dnnsmnstrr/dotfiles) [![Twitter Follow](https://img.shields.io/twitter/follow/dnnsmnstrr?style=social)](https://twitter.com/dnnsmnstrr)
+# Dennis’s dotfiles [![Twitter Follow](https://img.shields.io/twitter/follow/dnnsmnstrr?style=social)](https://twitter.com/dnnsmnstrr)
 
-> These are my dotfiles. There are many like them, but these are mine.
+> These ~~are~~were my dotfiles. There are many like them, but these ~~are~~were mine.
+
+### Update 2025
+
+Since upgrading to a new MacBook with Apple Silicon, I am no longer using this configuration - Instead, I am trying to go with the defaults wherever possible. 
+
+Many of my most important customizations now rely heavily on [Raycast](https://raycast.com/?via=dnnsmnstrr), so there is less of a need for setup scripts. (Things like the  <kbd>Hyper</kbd> key are now built-in, but I still use [BetterTouchTool](https://folivora.ai) for custom gestures and system-level modifications that Raycast is not equipped to do)
+
+I will share my [`.zshrc` as a Gist](https://gist.github.com/dnnsmnstrr/02157dd027b7d368f92990d7c4cf0fc8) when I make any significant changes to it.
+
+---
 
 Since [dotfiles](https://dotfiles.github.io) are very personal, I would not recommend just installing mine. Take a look and get inspiration, but there are better places to start off from. (such as the repo this one is forked from)
 I do recommend checking out my [preset](https://github.com/dnnsmnstrr/HydroTouch) for [BetterTouchTool](https://folivora.ai)! It is an extension to [AquaTouch](https://community.folivora.ai/c/setup-preset-sharing/aquatouch) by [@yuuiko](https://github.com/yuuiko), which I also highly recommend.
